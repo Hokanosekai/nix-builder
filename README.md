@@ -4,17 +4,9 @@
 
 ## Goals
 
-Easy to create, custom ISO images for [NixOS](https://nixos.org/) starting with raspberry pi.
+Easy to create, custom ISO images for [NixOS](https://nixos.org/).
 
-The idea is to create a simple ISO image with some presets, then use something like
-[deploy-rs](https://github.com/serokell/deploy-rs) to update the raspis.
-
-## Who is this for?
-
-If you need to build a quick raspi custom image using nixos, this repo is for you.
-It also works well if you want to experiment with nixos.
-
-An alternative, and more advanced approach, is to create a nixos image for your raspberry, with the most basic features, and then, use something like [deploy-rs](https://github.com/serokell/deploy-rs) or [bento](https://github.com/rapenne-s/bento) to update and configure your raspberries.
+The idea is to create an ISO image with my presets.
 
 ## Usage
 

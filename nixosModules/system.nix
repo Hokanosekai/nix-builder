@@ -1,4 +1,4 @@
-{ inputs, ganix, ... }@flakeContext:
+{ inputs, hokanosekai, ... }@flakeContext:
 { config, lib, pkgs, ... }: {
   imports = [
     inputs.self.nixosModules.services
@@ -22,7 +22,7 @@
         # NixOS wants to enable GRUB by default
         grub.enable = false;
         # raspberryPi.enable = true;
-        raspberryPi.version = ganix.raspberry_model;
+        raspberryPi.version = hokanosekai.raspberry_model;
         generic-extlinux-compatible.enable = true;
         # generic-extlinux-compatible.populateCmd = lib.mkForce {};
       };
@@ -36,7 +36,7 @@
 
     };
     # Time
-    time.timeZone = ganix.timezone;
+    time.timeZone = hokanosekai.timezone;
 
     # Man
     documentation = {
@@ -45,22 +45,11 @@
 
     # System packages
     environment.systemPackages = with pkgs; [
-      libraspberrypi
-      vim
       git
       wget
-      jq
       docker-compose
       bat # cat
-      # exa # ls
-      # ripgrep # grep
-      # fd # find
-      # procs # ps
-      # sd # sed
-      # du-dust # du
-      # bandwhich
-      xh # http
-      # macchina
+      exa # ls
     ];
 
     hardware = {
@@ -71,15 +60,15 @@
       ];
 
       bluetooth = {
-        # package = pkgs.bluez;
-        enable = false;
-        powerOnBoot = false;
+        package = pkgs.bluez;
+        enable = true;
+        powerOnBoot = true;
       };
 
     };
 
     networking = {
-      hostName = ganix.hostname;
+      hostName = hokanosekai.hostname;
       firewall.enable = false;
       interfaces.wlan0 = {
         useDHCP = true;
@@ -91,11 +80,11 @@
       };
 
       wireless = {
-        enable = ganix.wifi_enabled;
+        enable = hokanosekai.wifi_enabled;
         interfaces = [ "wlan0" ];
         networks = {
-          "${ganix.wifi_network_name}" = {
-            pskRaw = "${ganix.wifi_network_psk}";
+          "${hokanosekai.wifi_network_name}" = {
+            pskRaw = "${hokanosekai.wifi_network_psk}";
           };
         };
 
@@ -107,7 +96,7 @@
     };
 
     sdImage.compressImage = false;
-    sdImage.imageName = "${config.sdImage.imageBaseName}-${ganix.hostname}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.img";
+    sdImage.imageName = "${config.sdImage.imageBaseName}-${hokanosekai.hostname}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.img";
 
     i18n = {
       defaultLocale = "en_US.UTF-8";

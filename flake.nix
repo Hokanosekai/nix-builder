@@ -1,5 +1,5 @@
 {
-  description = "Raspberry Pi with NixOS iso";
+  description = "Personal NixOS configuration";
   inputs = {
     nixpkgs.url = "flake:nixpkgs/nixpkgs-unstable";
     nixos-generators.url = "github:nix-community/nixos-generators";
@@ -7,10 +7,10 @@
   };
   outputs = { self, nixos-generators, nixpkgs, ... }@inputs:
     let
-      ganix = import ./loader/from_envs.nix;
+      hokanosekai = import ./loader/from_envs.nix;
       flakeContext = {
         inherit inputs;
-        inherit ganix;
+        inherit hokanosekai;
       };
     in
     {

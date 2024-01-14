@@ -1,6 +1,6 @@
 let
   pkgs = import <nixpkgs> {};
-  ganix = import ../ganix.nix;
+  hokanosekai = import ../hokanosekai.nix;
   getOrElse = x: d: if x == "" then d else x;
   getIfNotNullElse = x: d: if x == null then d else x;
   getAsList = x: if x == "" then [] else [x];
@@ -40,12 +40,12 @@ let
   wifi_network_psk = getOrElse wifi_network_psk_env wifi_network_psk_default;
 
  in {
-  hostname = getIfNotNullElse ganix.hostname hostname;
-  username = getIfNotNullElse ganix.username username;
-  timezone = getIfNotNullElse ganix.timezone timezone;
-  raspberry_model = getIfNotNullElse ganix.raspberry_model raspberry_model;
-  ssh_key = ganix.ssh_key ++ ssh_key;
-  wifi_enabled = getIfNotNullElse ganix.wifi_enabled wifi_enabled;
-  wifi_network_name = getIfNotNullElse ganix.wifi_network_name wifi_network_name;
-  wifi_network_psk = getIfNotNullElse ganix.wifi_network_psk wifi_network_psk;
+  hostname = getIfNotNullElse hokanosekai.hostname hostname;
+  username = getIfNotNullElse hokanosekai.username username;
+  timezone = getIfNotNullElse hokanosekai.timezone timezone;
+  raspberry_model = getIfNotNullElse hokanosekai.raspberry_model raspberry_model;
+  ssh_key = hokanosekai.ssh_key ++ ssh_key;
+  wifi_enabled = getIfNotNullElse hokanosekai.wifi_enabled wifi_enabled;
+  wifi_network_name = getIfNotNullElse hokanosekai.wifi_network_name wifi_network_name;
+  wifi_network_psk = getIfNotNullElse hokanosekai.wifi_network_psk wifi_network_psk;
  }
