@@ -8,7 +8,7 @@ let
 in
 inputs.nixos-generators.nixosGenerate {
   system = "x86_64-linux";
-  format = "iso";
+  format = "sdImage";
   modules = [
     nixosModule
   ];
