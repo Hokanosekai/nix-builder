@@ -20,10 +20,6 @@ let
   timezone_default = "Europe/Amsterdam";
   timezone = getOrElse timezone_env timezone_default;
 
-  raspberry_model_env = builtins.getEnv "INPUT_RASPBERRY_MODEL";
-  raspberry_model_default = "3";
-  raspberry_model = pkgs.lib.strings.toInt (getOrElse raspberry_model_env raspberry_model_default);
-
   ssh_key_env = builtins.getEnv "INPUT_SSH_KEY";
   ssh_key = getAsList ssh_key_env;
 
@@ -43,7 +39,6 @@ let
   hostname = getIfNotNullElse hokanosekai.hostname hostname;
   username = getIfNotNullElse hokanosekai.username username;
   timezone = getIfNotNullElse hokanosekai.timezone timezone;
-  raspberry_model = getIfNotNullElse hokanosekai.raspberry_model raspberry_model;
   ssh_key = hokanosekai.ssh_key ++ ssh_key;
   wifi_enabled = getIfNotNullElse hokanosekai.wifi_enabled wifi_enabled;
   wifi_network_name = getIfNotNullElse hokanosekai.wifi_network_name wifi_network_name;

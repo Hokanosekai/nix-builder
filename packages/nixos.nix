@@ -7,8 +7,8 @@ let
   };
 in
 inputs.nixos-generators.nixosGenerate {
-  system = "aarch64-linux";
-  format = "sd-aarch64";
+  system = "x86_64-linux";
+  format = "iso";
   modules = [
     nixosModule
   ];

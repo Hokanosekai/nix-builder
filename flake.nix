@@ -20,7 +20,7 @@
         services = import ./nixosModules/services.nix flakeContext;
       };
       packages = {
-        aarch64-linux = {
+        x86_64-linux = {
           nixos = import ./packages/nixos.nix flakeContext;
         };
       };

@@ -20,10 +20,9 @@
 
       loader = {
         # NixOS wants to enable GRUB by default
-        grub.enable = false;
+        grub.enable = true;
         # raspberryPi.enable = true;
-        raspberryPi.version = hokanosekai.raspberry_model;
-        generic-extlinux-compatible.enable = true;
+        # generic-extlinux-compatible.enable = true;
         # generic-extlinux-compatible.populateCmd = lib.mkForce {};
       };
 

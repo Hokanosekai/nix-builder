@@ -13,14 +13,7 @@ on:
       time_zone:
         type: string
         description: "Configure timezone of this machine"
-        default: "Europe/Amsterdam"
-        required: false
-      raspberry_model:
-        type: choice
-        description: "Raspberry pi model"
-        options:
-          - "3"
-          - "4"
+        default: "Europe/Paris"
         required: false
       # No mechanism yet to provide multiple keys
       ssh_key:
